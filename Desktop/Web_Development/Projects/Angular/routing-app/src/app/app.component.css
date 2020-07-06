@@ -1,0 +1,40 @@
+:root {
+  --primary-color: rgb(255, 255, 255);
+}
+
+.root-container {
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+}
+
+.nav-container {
+  display: flex;
+  width: 90%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-left {
+  float: left;
+}
+
+.nav-right ul {
+  display: flex;
+}
+
+.nav-right ul li {
+  margin-right: 0.8rem;
+}
+
+a {
+  color: white;
+  padding: 0.3rem;
+  box-shadow: 0px;
+  transition: all 0.3s;
+}
+
+a:hover {
+  box-shadow: 0px -2.4rem 0px 0px #00ffa7 inset;
+  color: black;
+}

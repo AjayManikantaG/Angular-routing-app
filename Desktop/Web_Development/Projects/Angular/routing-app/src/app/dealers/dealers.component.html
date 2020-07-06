@@ -1,0 +1,34 @@
+<div class="dealer"> 
+  <div class="dealer-header">
+    <h1>Dealers in Toyoto</h1>
+    <div class="dealer-search">
+      <input
+        placeholder="Search with Dealer Id"
+        type="text"
+        (change)="changeDealers($event)"
+      />
+      <i class="fa fa-search" aria-hidden="true"></i>
+    </div>
+  </div>
+  <div class="dealer-con">
+    <div *ngFor="let i of dealers" class="dealer-con__data">
+      <div class="dealer-con--i" *ngIf="!dealersExists">
+        <li>
+          <strong>Dealer id - </strong> <i>{{ i.dealer }}</i>
+        </li>
+        <li>
+          <strong>Dealer Name - </strong> <i>{{ i.dealerName }}</i>
+        </li>
+        <li>
+          <strong>Dealer Region - </strong> <i>{{ i.dealerRegion }}</i>
+        </li>
+        <li>
+          <strong>Dealer district - </strong> <i>{{ i.district }}</i>
+        </li>
+      </div>
+    </div>
+    <div *ngIf="dealersExists">
+      <h3>Oops! We didn't found the dealer</h3>
+    </div>
+  </div>
+</div>

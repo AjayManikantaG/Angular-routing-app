@@ -1,0 +1,32 @@
+<div class="test-container">
+    <h3>Welcome ..!!</h3>
+    <div class="test-container__top test-container__common">
+      <p>
+        You have clicked
+        <a (click)="btnClicked()" class="this" >this</a> {{counter}} times
+        using interpolation
+      </p>
+    </div>
+    <div class="test-container__middle test-container__common">
+      <p>
+        <input (keyup)="keyPress($event)" type="text" [(ngModel)]="name" />
+        <br /><br />
+        <strong>You typed: {{name}}</strong>
+      </p>
+    </div>
+  
+    <div
+      class="test-container__middle test-container__common"
+      [ngStyle]="{
+        'background-color': counter > 5 ? 'orange' : 'lightgray'
+      }"
+    >
+      <ng-template [ngIf]="counter > 5" [ngIfElse]="none">
+        <p>The counter is greater than 5</p>
+      </ng-template>
+      <ng-template #none>
+        <p>The counter is less than 5</p>
+      </ng-template>
+    </div>
+  </div>
+  

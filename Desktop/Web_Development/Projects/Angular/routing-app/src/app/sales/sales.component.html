@@ -1,0 +1,27 @@
+<div class="sales">
+  <div class="sales-header">
+    <h1>Past 10 transactions in sales</h1>
+    <div class="sales-search"></div>
+  </div>
+  <div class="sales-con">
+    <div class="sales-con__data">
+      <div *ngFor="let sale of sales" class="sales-con--i">
+        <li>
+          <strong>Dealer id - </strong> <i>{{ sale.dealer }}</i>
+        </li>
+        <li>
+          <strong>sales id - </strong> <i>{{ sale.id }}</i>
+        </li>
+        <li>
+          <strong>Vin Number - </strong> <i>{{ sale.vin }}</i>
+        </li>
+        <li>
+          <strong>Retail Date - </strong><i>{{ sale.retailDate }}</i>
+        </li>
+        <li>
+          <strong>sale status - </strong><i>{{ sale.saleStatus }}</i>
+        </li>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+.test-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.test-container__common {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 2px solid red;
+}
+
+.this {
+  border: 1px solid lightgray;
+  padding: 0.3rem 0.8rem;
+  color: black;
+  background-color: lightgray;
+}
+
+.this:hover {
+  cursor: pointer;
+}
+
+.this:active {
+  color: rgb(51, 49, 49);
+}
+
+input {
+  padding: 0.2rem;
+  outline: none;
+  border: 1px solid black;
+}
