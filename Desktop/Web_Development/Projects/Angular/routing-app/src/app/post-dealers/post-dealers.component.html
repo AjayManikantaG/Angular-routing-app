@@ -1,6 +1,87 @@
-<div class="post-dealer">
-  <form action="/dealers" method="post">
-    <input type="text">
-    <button type="submit">Submit</button>
-  </form>
+<!-- This is done using template driven forms -->
+<div class="container-fluid mb-5">
+  <h1>Create new dealer</h1>
+  <hr />
+  <div class="form-container">
+    <form
+      #userForm="ngForm"
+      action="http://localhost:3000/dealers-data"
+      method="POST"
+    >
+      <div class="form-group">
+        <!-- <label for="">DealerID</label> -->
+        <input
+          #d_id="ngModel"
+          id="form_input_id"
+          placeholder="Dealer ID"
+          required
+          pattern="\d{5}"
+          name="dealerId"
+          type="text"
+          class="form-control"
+          required
+          [class.is-invalid]="d_id.touched && d_id.invalid"
+          [(ngModel)]="userModel.dealerId"
+        />
+        <label for="form_input_id" class="inp-plc">Dealer ID</label>
+        <small
+          class="err-msg err-msg-id"
+          [class.d-none]="d_id.untouched && d_id.valid"
+          >The name must be of 5 digits and greater than 11219</small
+        >
+      </div>
+      <div class="form-group">
+        <input
+          id="form_input_name"
+          #n_id="ngModel"
+          type="email"
+          placeholder="Dealer Name"
+          required
+          class="form-control"
+          name="dealerName"
+          [(ngModel)]="userModel.dealerName"
+        />
+        <label for="form_input_name" class="inp-plc">Dealer Name</label>
+      </div>
+
+      <div class="form-group">
+        <input
+          #r_id="ngModel"
+          placeholder="Dealer Region"
+          id="form_input_region"
+          type="text"
+          required
+          class="form-control"
+          name="dealerRegion"
+          [(ngModel)]="userModel.dealerRegion"
+        />
+        <label for="form_input_region" class="inp-plc">Dealer Region</label>
+      </div>
+
+      <div class="form-group">
+        <select
+          name="district"
+          id=""
+          class="custom-select"
+          [(ngModel)]="userModel.district"
+          required
+        >
+          <option value="">Select your district</option>
+          <option *ngFor="let district of districts">{{ district }}</option>
+        </select>
+      </div>
+
+      <button
+        class="btn btn-primary"
+        type="submit"
+        [disabled]="d_id.invalid || n_id.invalid || r_id.invalid"
+      >
+        Sign Up
+      </button>
+    </form>
+  </div>
 </div>
+<div class="tdf">
+  <small>Made using Template driven forms</small>
+</div>
+<router-outlet></router-outlet>
