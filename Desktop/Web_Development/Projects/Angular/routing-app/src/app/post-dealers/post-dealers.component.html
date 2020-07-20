@@ -24,15 +24,21 @@
           [(ngModel)]="userModel.dealerId"
         />
         <label for="form_input_id" class="inp-plc">Dealer ID</label>
+        <i
+          [class.d-none]="d_id.untouched || (d_id.touched && d_id.invalid)"
+          class="fa fa-check"
+          aria-hidden="true"
+        ></i>
         <small
           class="err-msg err-msg-id"
-          [class.d-none]="d_id.untouched && d_id.valid"
-          >The name must be of 5 digits and greater than 11219</small
+          [class.d-none]="d_id.untouched || d_id.valid"
+          >Id must be of 5 digits</small
         >
       </div>
       <div class="form-group">
         <input
           id="form_input_name"
+          pattern="[a-zA-Z ]{4,30}"
           #n_id="ngModel"
           type="email"
           placeholder="Dealer Name"
@@ -42,11 +48,22 @@
           [(ngModel)]="userModel.dealerName"
         />
         <label for="form_input_name" class="inp-plc">Dealer Name</label>
+        <i
+          [class.d-none]="n_id.untouched || (n_id.touched && n_id.invalid)"
+          class="fa fa-check"
+          aria-hidden="true"
+        ></i>
+        <small
+          class="err-msg err-msg-id"
+          [class.d-none]="n_id.untouched || n_id.valid"
+          >Name consists of character and length between 4 and 30
+        </small>
       </div>
 
       <div class="form-group">
         <input
           #r_id="ngModel"
+          pattern="[a-zA-Z ]{3,30}"
           placeholder="Dealer Region"
           id="form_input_region"
           type="text"
@@ -56,25 +73,38 @@
           [(ngModel)]="userModel.dealerRegion"
         />
         <label for="form_input_region" class="inp-plc">Dealer Region</label>
+        <i
+          [class.d-none]="r_id.untouched || (r_id.touched && r_id.invalid)"
+          class="fa fa-check"
+          aria-hidden="true"
+        ></i>
+        <small
+          class="err-msg err-msg-id"
+          [class.d-none]="r_id.untouched || r_id.valid"
+          >Region consists of character and length between 3 and 30</small
+        >
       </div>
 
       <div class="form-group">
         <select
+          #s_option
           name="district"
           id=""
           class="custom-select"
           [(ngModel)]="userModel.district"
           required
         >
-          <option value="">Select your district</option>
+          <option #s_option value="">Select your district</option>
           <option *ngFor="let district of districts">{{ district }}</option>
         </select>
       </div>
-
+      {{ log(s_option.value) }}
       <button
         class="btn btn-primary"
         type="submit"
-        [disabled]="d_id.invalid || n_id.invalid || r_id.invalid"
+        [disabled]="
+          d_id.invalid || n_id.invalid || r_id.invalid || !s_option.value
+        "
       >
         Sign Up
       </button>

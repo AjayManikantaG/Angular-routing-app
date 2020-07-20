@@ -10,6 +10,10 @@ export class PostDealersComponent implements OnInit {
   ngOnInit(): void {}
 
   title = 'tdf';
-  districts = ['Chennai', 'Tirupathi', 'Madhurai'];
+  districts = ['Chennai', 'Tirupathi', 'Madhurai', 'California'];
   userModel = new User( 0 , '', '', '');
+
+  log(event) {
+    console.log(event)
+  }
 }
